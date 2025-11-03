@@ -1,0 +1,40 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+vector<int> solution(vector<int> arr, vector<bool> flag) {
+    vector<int> answer; 
+    vector<int> X = {};     // 빈 배열 X
+    
+    // flag를 차례대로 순회하는 반복문
+    for (int i = 0; i < flag.size(); i++) 
+    {        
+        // flag[i]가 true일 경우
+        if(flag[i] == true)
+        {
+            // arr[i] × 2 번 추가하기
+            for (int j = 0; j < arr[i] * 2; j++) 
+            {
+                X.push_back(arr[i]);             // X 배열에 차례대로 값 추가
+            }
+        }
+        
+        else
+        {
+            // 마지막 arr[i]개의 원소를 제거하기
+            for (int j = 0; j < arr[i]; j++) 
+            {
+                X.pop_back();                    // 뒤에서 1개씩 제거
+            }
+        }
+    }
+    answer = X;                                  // 결과를 answer에 초기화
+    
+    return answer;
+}
+
+// 아무 원소도 들어있지 않은 빈 배열 X → vector<int> X = {}
+// 길이가 같은 정수 배열 arr과 boolean 배열 flag → arr.size() == flag.size()
+// 배열(벡터)의 맨 뒤에 값 하나 추가하기 → push_back()
+// 배열(벡터)의 맨 뒤 원소 하나 제거하기 → pop_back()

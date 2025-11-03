@@ -1,0 +1,20 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+// n은 양꼬치 개수, k는 음료수 개수
+int solution(int n, int k) {
+    int answer = 0;     // 최종 값
+    
+    int PriceLamb = 12000;                          // 양꼬치 가격
+    int PriceDrink = 2000;                          // 음료수 가격
+    
+    int ServiceDrinkCount = n/10;                   // 서비스 음료수 개수
+    int PayDrinkCount = k - ServiceDrinkCount;      // 결제해야하는 음료수의 개수 
+    int c = PayDrinkCount;                          // 계산 식에 사용하기 위해 초기화
+    
+    answer = (PriceLamb * n) + (PriceDrink * c) ;   // 계산 식
+    
+    return answer;
+}

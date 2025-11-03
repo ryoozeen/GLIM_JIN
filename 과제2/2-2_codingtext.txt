@@ -1,0 +1,26 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+
+int solution(vector<vector<int>> board, int k) {
+    int answer = 0;                         // 최종 합계
+
+    int Row = (int)board.size();            // 행의 개수    
+    int Column = (int)board[0].size();      // 열의 개수    
+ 
+    // 행 * 열 안에서 값을 찾는 반복문
+    for (int i = 0; i < Row; i++) {         // i는 행
+        for (int j = 0; j < Column; j++)    // j는 열
+        {     
+            // 조건: i + j ≤ k
+            if (i + j <= k)                 
+            {               
+                answer += board[i][j];      // 해당 칸의 값 더하기
+            }
+        }
+    }
+
+    return answer;
+}

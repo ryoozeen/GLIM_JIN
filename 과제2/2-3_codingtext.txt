@@ -1,0 +1,28 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int solution(vector<vector<int>> dots) {
+    int answer = 0;
+    
+    int minX = dots[0][0], maxX = dots[0][0];
+    int minY = dots[0][1], maxY = dots[0][1];
+    
+    for (int i = 1; i < 4; ++i) {
+        int x = dots[i][0];
+        int y = dots[i][1];
+
+        if (x < minX) minX = x;
+        if (x > maxX) maxX = x;
+        if (y < minY) minY = y;
+        if (y > maxY) maxY = y;
+    }
+
+    int width  = maxX - minX;   // 가로 길이
+    int height = maxY - minY;   // 세로 길이
+    
+    answer = width * height;     // 직사각형의 넓이
+    
+    return answer;
+}
